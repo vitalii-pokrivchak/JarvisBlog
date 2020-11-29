@@ -2,7 +2,7 @@
   "database": {
     "driver": "mysql",
     "host": "localhost",
-    "name": "bookstore",
+    "name": "jarvis-blog",
     "user": "root",
     "password": "root",
     "port": "3306"
