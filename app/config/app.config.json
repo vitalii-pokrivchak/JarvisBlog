@@ -9,7 +9,7 @@
   },
 
   "app_settings": {
-    "app_name": "Jarvis Framework",
+    "app_name": "Jarvis Blog",
     "views_path": "./app/views/",
     "templates_path": "./app/views/templates/",
     "default_controller": "HomeController",
