@@ -15,7 +15,7 @@ class Post extends ModelObject
     private string $poster;
     private int $author_id;
     private int $category_id;
-
+    private string $created_at;
 
     /**
      * GetTitle
@@ -70,6 +70,15 @@ class Post extends ModelObject
     public function GetCategoryId(): int
     {
         return $this->category_id;
+    }
+    /**
+     * GetCreatedAt
+     *
+     * @return int
+     */
+    public function GetCreatedAt(): string
+    {
+        return $this->created_at;
     }
     /**
      * GetAllData

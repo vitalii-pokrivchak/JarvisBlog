@@ -15,12 +15,16 @@ class PostModel extends Model
      */
     public function get_all(): array
     {
-        return
-            SQL::select(
-                'post',
-                null,
-                Post::class
-            );
+        $posts = [
+            1 => "fdf"
+        ];
+        $posts = SQL::select(
+            'post',
+            null,
+            Post::class
+        );
+
+        return $posts;
     }
     /**
      * get
