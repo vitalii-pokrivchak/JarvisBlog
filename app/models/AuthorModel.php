@@ -11,16 +11,11 @@ class AuthorModel extends Model
 {
     public function get_all(): array
     {
-        $authors = [
-            1 => "test"
-        ];
-
-        $authors = SQL::select(
+        return SQL::select(
             'author',
             null,
             Author::class
         );
-        return $authors;
     }
     public function get(int $id): ModelObject
     {

@@ -9,9 +9,19 @@ use jarvis\models\ModelObject;
  */
 class Category extends ModelObject
 {
-
+    private int $id;
     private string $title;
 
+
+    /**
+     * GetId
+     *
+     * @return void
+     */
+    public function GetId()
+    {
+        return $this->title;
+    }
     /**
      * GetTitle
      *

@@ -15,14 +15,18 @@ class PostModel extends Model
      */
     public function get_all(): array
     {
-        $posts = [
-            1 => "fdf"
-        ];
-        $posts = SQL::select(
+
+        $posts = [];
+
+        $data = SQL::select(
             'post',
             null,
             Post::class
         );
+
+        foreach ($data as $d) {
+            $posts[$d->GetId()] = $d;
+        }
 
         return $posts;
     }
@@ -32,7 +36,7 @@ class PostModel extends Model
      * @param int $id
      * @return ModelObject
      */
-    public function get(int $id): ModelObject
+    public function get(int $id): Post
     {
         return
             SQL::select(

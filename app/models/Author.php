@@ -9,11 +9,23 @@ use jarvis\models\ModelObject;
  */
 class Author extends ModelObject
 {
+    private int $id;
     private string $nickname;
     private string $website;
     private string $email;
     private string $avatar;
 
+
+
+    /**
+     * GetId
+     *
+     * @return void
+     */
+    public function GetId()
+    {
+        return $this->id;
+    }
     /**
      * GetNickName
      *

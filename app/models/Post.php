@@ -9,6 +9,7 @@ use jarvis\models\ModelObject;
  */
 class Post extends ModelObject
 {
+    private int $id;
     private string $title;
     private string $short_content;
     private string $content;
@@ -16,7 +17,17 @@ class Post extends ModelObject
     private int $author_id;
     private int $category_id;
     private string $created_at;
-
+    private Category $category;
+    private Author $author;
+    /**
+     * GetId
+     *
+     * @return void
+     */
+    public function GetId()
+    {
+        return $this->id;
+    }
     /**
      * GetTitle
      *
@@ -79,6 +90,34 @@ class Post extends ModelObject
     public function GetCreatedAt(): string
     {
         return $this->created_at;
+    }
+    /**
+     * GetCategory
+     *
+     * @return Category
+     */
+    public function GetCategory(): Category
+    {
+        return $this->category;
+    }
+
+    public function SetCategory(Category $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * GetAuthor
+     *
+     * @return Author
+     */
+    public function GetAuthor(): Author
+    {
+        return $this->author;
+    }
+    public function SetAuthor(Author $author)
+    {
+        $this->author = $author;
     }
     /**
      * GetAllData

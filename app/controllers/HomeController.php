@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\AuthorModel;
 use app\models\CategoryModel;
+use app\models\Post;
 use app\models\PostModel;
 use jarvis\config\Config;
 use jarvis\controllers\Controller;
@@ -24,11 +25,21 @@ class HomeController extends Controller
     }
     public function index()
     {
+        $data = [];
+        foreach ($this->post_model->get_all() as $post) {
+            $post->SetCategory($this->category_model->get($post->GetCategoryId()));
+            $post->SetAuthor($this->author_model->get($post->GetAuthorId()));
+            $data[] = $post;
+        }
+
+        $first_post = $this->post_model->get(1);
+        $first_post->SetCategory($this->category_model->get($first_post->GetCategoryId()));
+        $first_post->SetAuthor($this->author_model->get($first_post->GetCategoryId()));
 
         $this->bundle->setData([
-            'posts' => $this->post_model->get_all(),
+            'data' => $data,
             'categories' => $this->category_model->get_all(),
-            'authors' => $this->author_model->get_all()
+            "first_post" => $first_post
         ]);
         parent::render($this->bundle);
     }
